@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="1.0"
+    android:background="@color/light_blue"
+    android:fillViewport="true"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_dish_name"
+            android:layout_width="357dp"
+            android:layout_height="49dp"
+            android:gravity="left"
+            android:text="@string/name_of_the_dish"
+            android:textColor="#000000"
+            android:textSize="34sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.06" />
+
+        <ImageView
+            android:id="@+id/iv_dishImage"
+            android:layout_width="357dp"
+            android:layout_height="279dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dish_name"
+            app:layout_constraintVertical_bias="0.018"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tv_ingredients_title"
+            android:layout_width="204dp"
+
+            android:layout_height="52dp"
+            android:text="Ingredients:"
+            android:textColor="@color/dark_blue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_dishImage"
+            app:layout_constraintVertical_bias="0.055" />
+
+        <TextView
+            android:id="@+id/tv_ingredients_list"
+            android:layout_width="365dp"
+            android:layout_height="112dp"
+            android:text="@string/Ingredients"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_ingredients_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_ingredients_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ingredients_title"
+            app:layout_constraintVertical_bias="0.063" />
+
+        <TextView
+            android:id="@+id/tv_steps_title"
+            android:layout_width="204dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
+            android:text="Steps:"
+            android:textColor="@color/dark_blue"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_ingredients_list"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_ingredients_list"
+            app:layout_constraintTop_toBottomOf="@+id/tv_ingredients_list"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/tv_steps_list"
+            android:layout_width="365dp"
+            android:layout_height="112dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/steps"
+            android:textColor="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_steps_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_steps_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_steps_title"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
