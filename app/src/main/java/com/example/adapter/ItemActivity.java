@@ -2,12 +2,19 @@ package com.example.adapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+
+import java.net.URL;
 
 public class ItemActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -31,6 +38,23 @@ public class ItemActivity extends AppCompatActivity {
         tv_dish_name.setText(dish.name);
         tv_ingredients_list.setText(dish.ingredients_list);
         tv_steps_list.setText(dish.steps_list);
-
+        String strURL = dish.strURL;
+        @SuppressLint("HandlerLeak") Handler imageHandler = new Handler(){
+            public void handleMessage(Message msg) {
+                if(msg.obj instanceof Bitmap){
+                    iv_dishImage.setImageBitmap((Bitmap)msg.obj);
+                }
+            }
+        };
+        new Thread(() -> {
+            try {
+                Bitmap bitmap = BitmapFactory.decodeStream(new URL(strURL).openStream());
+                Message msg = new Message();
+                msg.obj = bitmap;
+                imageHandler.sendMessage(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }

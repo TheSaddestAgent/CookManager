@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/tv_dish_name"
             android:layout_width="357dp"
-            android:layout_height="49dp"
+            android:layout_height="wrap_content"
             android:gravity="left"
             android:text="@string/name_of_the_dish"
             android:textColor="#000000"
@@ -30,10 +30,10 @@
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintHorizontal_bias="0.611"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.06" />
+            app:layout_constraintVertical_bias="0.031" />
 
         <ImageView
             android:id="@+id/iv_dishImage"
@@ -48,37 +48,38 @@
 
         <TextView
             android:id="@+id/tv_ingredients_title"
-            android:layout_width="204dp"
+            android:layout_width="202dp"
 
-            android:layout_height="52dp"
+            android:layout_height="35dp"
             android:text="Ingredients:"
             android:textColor="@color/dark_blue"
             android:textSize="24sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintHorizontal_bias="0.129"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_dishImage"
-            app:layout_constraintVertical_bias="0.055" />
+            app:layout_constraintVertical_bias="0.085" />
 
         <TextView
             android:id="@+id/tv_ingredients_list"
             android:layout_width="365dp"
-            android:layout_height="112dp"
+            android:layout_height="wrap_content"
             android:text="@string/Ingredients"
             android:textColor="@color/grey"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tv_ingredients_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.036"
             app:layout_constraintStart_toStartOf="@+id/tv_ingredients_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_ingredients_title"
-            app:layout_constraintVertical_bias="0.063" />
+            app:layout_constraintVertical_bias="0.093" />
 
         <TextView
             android:id="@+id/tv_steps_title"
-            android:layout_width="204dp"
-            android:layout_height="52dp"
+            android:layout_width="228dp"
+            android:layout_height="46dp"
             android:layout_marginTop="32dp"
             android:text="Steps:"
             android:textColor="@color/dark_blue"
@@ -94,13 +95,14 @@
         <TextView
             android:id="@+id/tv_steps_list"
             android:layout_width="365dp"
-            android:layout_height="112dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/steps"
             android:textColor="@color/grey"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tv_steps_title"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.014"
             app:layout_constraintStart_toStartOf="@+id/tv_steps_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_steps_title"
             app:layout_constraintVertical_bias="0.0" />
