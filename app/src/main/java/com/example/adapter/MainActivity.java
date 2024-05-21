@@ -6,18 +6,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.HashSet;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends Activity {
-    private SharedPreferences sharedPreferences;
+public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener{
+    private SharedPreferences sharedPreferences, sharedFavorites;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +31,47 @@ public class MainActivity extends Activity {
 
         sharedPreferences = getSharedPreferences("DISHES", MODE_PRIVATE);
 
+        sharedFavorites = getSharedPreferences("Favorites", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedFavorites.edit();
+        Gson gson = new Gson();
+        HashSet<String> hashSet = new HashSet<>();
+        hashSet.add("Wheat Bread");
+        //hashSet.add("Fried Chicken");
+        String json = gson.toJson(hashSet);
+        editor.putString("Favorites Recipes", json);
+        editor.apply();
+
+        Spinner spinner = findViewById(R.id.spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.activities1, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(this);
+
         new DownloadDishesTask().execute();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 1:
+                Intent intent = new Intent(MainActivity.this, FavoritesActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     private class DownloadDishesTask extends AsyncTask<Void, Void, Dish[]> {
 
         @Override
         protected Dish[] doInBackground(Void... voids) {
-            String[] d_names = {"Fried Chicken", "Wheat Bread", "Gumbo Soup", "Bavarian Pretzels", "Baklava"};
+            String[] d_names = {"Fried Chicken", "Wheat Bread", "Gumbo Soup", "Bavarian Pretzels", "Baklava", "Shrimps", "Garlic_Pasta"};
             Dish[] arr = new Dish[d_names.length];
 
             for (int i = 0; i < d_names.length; i++) {
