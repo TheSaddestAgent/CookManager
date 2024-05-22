@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -69,10 +70,14 @@ public class FavoritesActivity extends AppCompatActivity implements AdapterView.
             String json = sharedFavorites.getString("Favorites Recipes", "");
             Gson gson = new Gson();
 
-            //String[] d_names = {"Fried Chicken", "Wheat Bread", "Gumbo Soup", "Bavarian Pretzels", "Baklava", "Shrimps", "Garlic_Pasta"};
             HashSet<String> d_names = gson.fromJson(json, HashSet.class);
 
+            if(d_names == null){
+                Dish[] tmp = new Dish[0];
+                return tmp;
+            }
             Dish[] arr = new Dish[d_names.size()];
+
             Iterator<String> iterator = d_names.iterator();
             int i = 0;
             while (iterator.hasNext()) {
@@ -81,8 +86,6 @@ public class FavoritesActivity extends AppCompatActivity implements AdapterView.
                 Dish dish = downloadDishFromUrl(url);
                 if (dish != null) {
                     arr[i] = dish;
-                    gson = new Gson();
-                    json = gson.toJson(dish);
                     i++;
                 }
             }

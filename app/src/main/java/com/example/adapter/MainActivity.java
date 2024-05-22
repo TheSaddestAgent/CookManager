@@ -32,14 +32,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
         sharedPreferences = getSharedPreferences("DISHES", MODE_PRIVATE);
 
         sharedFavorites = getSharedPreferences("Favorites", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedFavorites.edit();
-        Gson gson = new Gson();
-        HashSet<String> hashSet = new HashSet<>();
-        hashSet.add("Wheat Bread");
-        //hashSet.add("Fried Chicken");
-        String json = gson.toJson(hashSet);
-        editor.putString("Favorites Recipes", json);
-        editor.apply();
+
 
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

@@ -13,7 +13,6 @@
     android:background="#f2f2f2"
     android:fillViewport="true"
     android:fontFamily="@font/amaranth"
-
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,16 +26,17 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/amaranth"
             android:gravity="left"
+
             android:text="@string/name_of_the_dish"
             android:textColor="#000000"
             android:textSize="34sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.443"
+            app:layout_constraintHorizontal_bias="0.095"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.016" />
+            app:layout_constraintVertical_bias="0.021" />
 
         <ImageView
             android:id="@+id/iv_dishImage"
@@ -44,9 +44,10 @@
             android:layout_height="255dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_dish_name"
-            app:layout_constraintVertical_bias="0.018"
+            app:layout_constraintVertical_bias="0.006"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
@@ -115,6 +116,20 @@
             app:layout_constraintStart_toStartOf="@+id/tv_steps_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_steps_title"
             app:layout_constraintVertical_bias="1.0" />
+
+        <ImageButton
+            android:id="@+id/star_button"
+            android:layout_width="115dp"
+            android:layout_height="73dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toEndOf="@+id/tv_dish_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.007"
+            app:srcCompat="@android:drawable/btn_star_big_off" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

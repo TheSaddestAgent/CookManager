@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">Adapter</string>
+    <string name="app_name">Cook Manager</string>
     <string name="Ingredients">SOME of the INGREDIENTS</string>
     <string name="steps">SOME_OF_STEPS</string>
     <string name="name_of_the_dish">Name of the dish</string>
     <string name="spinner_title">Choose the activity</string>
     <string-array name="activities1">
-        <item>All dishes</item>
+        <item>All recipes</item>
         <item>Favorites</item>
     </string-array>
     <string-array name="activities2">
         <item>Favorites</item>
-        <item>All dishes</item>
+        <item>All recipes</item>
     </string-array>
     <string name="action_settings">Settings</string>
 </resources>
